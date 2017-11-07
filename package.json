@@ -22,14 +22,17 @@
   "author": "Milena Garces",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/milewam12/burger/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/milewam12/burger#readme",
+  "homepage": "",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.10",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "mysql2": "^1.4.2",
+    "router": "^1.3.2",
+    "sequelize": "^4.22.5"
   }
 }
