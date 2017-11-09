@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var burger = sequelize.define("burger", {
-        devour_name: DataTypes.STRING, allowNull: false 
+        devour_name: DataTypes.STRING
 
     }, {
         classMethods:{

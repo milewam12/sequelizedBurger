@@ -2,16 +2,13 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 // Sets up the Express App
-
 var app = express();
-var port = process.env.PORT || 8080;
-
+var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
 
-
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -27,8 +24,12 @@ app.set("view engine", "handlebars");
 
 // Routes 
 var routes = require("./routes/api-routes.js");
-app.use(app.router);
-routes.initialize(app);
+
+app.use("/", routes);
+app.use("/update", routes);
+app.use("/insertone", routes);
+
+
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {

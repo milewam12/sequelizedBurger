@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 // Get all burgers from the db
-router.get('/index', function (req, res) {
+router.get('/burgers', function (req, res) {
 
   db.burger.findAll({}).then(function(data){
 
@@ -19,7 +19,7 @@ router.get('/index', function (req, res) {
 
 // Create a new burger
 
-router.post('/burger/create', function (req, res) {
+router.post('/burgers/insertone', function (req, res) {
 
       db.burger.create(
         {
@@ -27,14 +27,14 @@ router.post('/burger/create', function (req, res) {
           devoured: false
         }
       ).then(function(){
-        res.redirect('/index');
+        res.redirect('/');
       });
     
     });
 
     // Devour a burger
 
-    router.post('/burger/eat/:id', function (req, res) {
+    router.post('/burgers/update/:id', function (req, res) {
         models.devoured.create({
             devour_name: req.body.devour_name,
             burgerId: req.params.id
@@ -43,7 +43,7 @@ router.post('/burger/create', function (req, res) {
             eatenB.update({
                 devoured: true
             }).then(function () {
-                res.redirect('/index');
+                res.redirect('/');
                 
             })
             
